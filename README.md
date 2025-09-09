@@ -23,3 +23,22 @@ Para guardar en fichero
 ```bash
 ./rockfmScraper --console >> songs.txt
 ```
+
+## Docker
+
+Puedes ejecutar la aplicación usando Docker. Solo necesitas el archivo `Dockerfile` y, si prefieres usar Docker Compose, también el archivo `docker-compose.yml`.
+
+### Ejecución con Docker
+
+```bash
+docker build -t rockfm-scraper .
+docker run --rm -v $(pwd)/data:/app/data rockfm-scraper
+```
+
+### Ejecución con Docker Compose
+
+```bash
+docker compose up
+```
+
+El directorio `data` se montará automáticamente como volumen. Si no existe, Docker lo creará. Puedes modificar la configuración del volumen en `docker-compose.yml` si lo necesitas.

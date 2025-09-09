@@ -1,0 +1,8 @@
+version: '3.8'
+services:
+  rockfm-scraper:
+    build: .
+    container_name: rockfmScraper
+    volumes:
+      - ./data:/app/data
+    command: ["./rockfmScraper", "--db"]
