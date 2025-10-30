@@ -13,10 +13,11 @@ func main() {
 
 	db, console := getArgs()
 
-	prevTitle := ""
+	prevTitle := getLastSong().Title
+
 	for {
 		song := getCurrentSong()
-		if song.Title != prevTitle && song.Title != "" {
+		if song.Title != prevTitle && song.Title != "" && song.Artist != "" {
 			if db {
 				saveToDb(song)
 			}

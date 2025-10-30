@@ -57,3 +57,20 @@ func saveToDb(song Song) {
 	}
 	tx.Commit()
 }
+
+func getLastSong() Song {
+	db, err := sql.Open("sqlite3", dbFile)
+	if err != nil {
+		panic(err)
+	}
+	defer db.Close()
+
+	row := db.QueryRow("SELECT title, artist FROM songs ORDER BY id DESC LIMIT 1")
+	var title string
+	var artist string
+	err = row.Scan(&title, &artist)
+	if err != nil {
+		panic(err)
+	}
+	return Song{Title: title, Artist: artist}
+}
