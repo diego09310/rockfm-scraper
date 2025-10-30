@@ -42,5 +42,5 @@ func getCurrentSong() Song {
 		return Song{}
 	}
 	song := strings.Split(strings.TrimSuffix(title, " <nil>"), " - ")
-	return Song{Title: song[0], Artist: song[1]}
+	return Song{Artist: song[0], Title: song[1]}
 }
